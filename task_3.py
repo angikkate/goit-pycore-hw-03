@@ -17,12 +17,12 @@ def normalize_phone(phone_number):
 
     if digits.startswith('380') and len(digits) == 12:
         return '+' + digits
-    if digits.startswith('0') and len(digits) == 10:
+    elif digits.startswith('0') and len(digits) == 10:
         return '+38' + digits
-    if len(digits) == 9:
+    elif len(digits) == 9:
         return '+380' + digits
-
-    return None  # invalid format
+    else:
+        return None  # invalid format
 
 sanitized_numbers = [normalize_phone(num) for num in raw_numbers]
 print("Нормалізовані номери телефонів для SMS-розсилки:", sanitized_numbers)
